@@ -5,7 +5,7 @@ import UnitDropDown from "./UnitDropDown";
 
 const Header = () => {
   return (
-    <header className="flex p-4 justify-between items-center">
+    <header className="flex p-4 justify-between items-center absolute w-full left-0 top-0">
       <div>
         <img src={logo} alt="Weather Now Logo" className="max-w-[137.9px]" />
       </div>
@@ -24,7 +24,7 @@ const Header = () => {
             <img src={dropdown} alt="caret-down" />
           </span>
         </button>
-        <div className="absolute top-full mt-2 -left-30 w-[214px] bg-white rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 p-1">
+        <div className="absolute top-full mt-2 -left-30 w-[214px]  rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 p-1">
           <UnitDropDown />
         </div>
       </div>

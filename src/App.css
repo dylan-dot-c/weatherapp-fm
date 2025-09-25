@@ -2,14 +2,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
 @import "tailwindcss";
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-}
+/* #root {
+} */
 
 body {
   background-color: var(--color-neutral-900);
   color: var(--color-neutral-0);
+  font-family: var(--font-family-bricolage);
+  padding: 1rem;
+}
+
+.dropdown {
+  @apply bg-neutral-800 border-neutral-600 border p-2 rounded;
+
+  .title {
+    @apply text-neutral-300 text-sm p-2;
+  }
+  button {
+    @apply p-2 hover:bg-neutral-700 w-full text-left cursor-pointer rounded-md block;
+  }
+}
+
+.unit-switch {
+  @apply pb-1;
+}
+
+.units-container {
+  @apply divide-neutral-600 rounded-full divide-y;
 }
 
 @theme {
