@@ -23,6 +23,29 @@ body {
   }
 }
 
+.dropdown--btn {
+  position: relative;
+}
+
+.dropdown--btn:hover .dropdown {
+  opacity: 100;
+  visibility: visible;
+}
+
+.dropdown {
+  transition: all 0.3s ease-in;
+  position: absolute;
+  top: 100%;
+  margin-top: 8px;
+  left: -120px;
+  max-width: 214px;
+  border-radius: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  width: 214px;
+}
+
 .unit-switch {
   @apply pb-1;
 }

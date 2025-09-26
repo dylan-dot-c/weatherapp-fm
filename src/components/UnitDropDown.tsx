@@ -1,3 +1,5 @@
+import check from "../assets/images/icon-checkmark.svg";
+
 const UnitDropDown = () => {
   return (
     <article className="dropdown">

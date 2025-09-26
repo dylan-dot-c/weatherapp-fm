@@ -13,7 +13,7 @@ const Header = () => {
         src="https://lottie.host/embed/2fc0668c-5c51-4408-aea8-a35634224c8e/fEHNkpb9Wb.lottie"
         width="100px"
       ></iframe> */}
-      <div className="group relative">
+      <div className="dropdown--btn">
         <button
           type="button"
           className="flex gap-2 items-center bg-neutral-800 p-1.5 rounded cursor-pointer hover:bg-neutral-600 transition"
@@ -24,7 +24,7 @@ const Header = () => {
             <img src={dropdown} alt="caret-down" />
           </span>
         </button>
-        <div className="absolute top-full mt-2 -left-30 w-[214px]  rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 p-1">
+        <div className="">
           <UnitDropDown />
         </div>
       </div>
