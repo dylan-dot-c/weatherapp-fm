@@ -1,6 +1,6 @@
-import logo from "../assets/images/logo.svg";
-import unitsIcon from "../assets/images/icon-units.svg";
-import dropdown from "../assets/images/icon-dropdown.svg";
+import logo from "../../assets/images/logo.svg";
+import unitsIcon from "../../assets/images/icon-units.svg";
+import dropdown from "../../assets/images/icon-dropdown.svg";
 import UnitDropDown from "./UnitDropDown";
 
 const Header = () => {

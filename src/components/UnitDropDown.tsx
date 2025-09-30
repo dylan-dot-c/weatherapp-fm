@@ -1,4 +1,4 @@
-import check from "../assets/images/icon-checkmark.svg";
+import check from "../../assets/images/icon-checkmark.svg";
 import useUnits from "../stores/unitsStore";
 import clsx from "clsx";
 
