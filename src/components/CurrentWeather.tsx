@@ -1,8 +1,8 @@
 // import bg from "../../assets/images/bg-today-small.svg";
-import sunny from "../../assets/images/icon-sunny.webp";
 import useLocation from "../stores/locationStore";
 import useUnits from "../stores/unitsStore";
 import { formatDateString } from "../utils/formatDateString";
+import weatherIcons from "../utils/weatherIcons";
 
 export type CurrentWeather = {
   time: Date;
@@ -34,7 +34,11 @@ const CurrentWeather = ({ current }: Props) => {
           </h3>
         </div>
         <div className="flex justify-center items-center">
-          <img src={sunny} alt="Sunny" width={120} />
+          <img
+            src={weatherIcons[current.weather_code]}
+            alt="Sunny"
+            width={120}
+          />
           <p className="text-8xl text-right italic">
             {current.temperature_2m.toFixed(0)}°
           </p>

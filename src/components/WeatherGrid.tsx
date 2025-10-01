@@ -3,6 +3,7 @@ import { fetchWeatherData } from "../api/weather";
 import { useQuery } from "@tanstack/react-query";
 import CurrentWeather from "./CurrentWeather";
 import DailyWeather from "./DailyWeather";
+import HourlyForecast from "./HourlyForecast";
 
 const WeatherGrid = () => {
   const { latitude, longitude } = useLocation();
@@ -21,6 +22,7 @@ const WeatherGrid = () => {
     <section>
       <CurrentWeather current={data!.current} />
       <DailyWeather daily={data!.daily} />
+      <HourlyForecast hourly={data!.hourly} />
 
       {}
     </section>
