@@ -1,7 +1,7 @@
 import useLocation from "../stores/locationStore";
 import { fetchWeatherData } from "../api/weather";
 import { useQuery } from "@tanstack/react-query";
-import Weather from "./Weather";
+import CurrentWeather from "./CurrentWeather";
 
 const WeatherGrid = () => {
   const { latitude, longitude } = useLocation();
@@ -18,7 +18,7 @@ const WeatherGrid = () => {
 
   return (
     <section>
-      <Weather current={data!.current} />
+      <CurrentWeather current={data!.current} />
 
       {}
     </section>
