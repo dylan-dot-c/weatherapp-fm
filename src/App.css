@@ -6,12 +6,7 @@
 } */
 
 body {
-  background-color: var(--color-neutral-900);
-  color: var(--color-neutral-0);
-  font-family: var(--font-family-dm-sans);
-  padding: 1rem;
-
-  @apply p-4 md:p-6 bg-neutral-900 text-neutral-0 font-family-dm-sans;
+  @apply lg:max-w-7xl lg:m-auto lg:p-10 p-4 md:p-6 bg-neutral-900 text-neutral-0 font-family-dm-sans;
 }
 
 .dropdown {

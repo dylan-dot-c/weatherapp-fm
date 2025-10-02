@@ -5,9 +5,13 @@ import UnitDropDown from "./UnitDropDown";
 
 const Header = () => {
   return (
-    <header className="flex p-4 justify-between items-center absolute w-full left-0 top-0">
+    <header className="flex p-4 justify-between items-center w-full left-0 top-0 xl:max-w-7xl xl:p-0 mx-auto">
       <div>
-        <img src={logo} alt="Weather Now Logo" className="max-w-[137.9px]" />
+        <img
+          src={logo}
+          alt="Weather Now Logo"
+          className="max-w-[137.9px] lg:max-w-64"
+        />
       </div>
       {/* <iframe
         src="https://lottie.host/embed/2fc0668c-5c51-4408-aea8-a35634224c8e/fEHNkpb9Wb.lottie"
@@ -16,7 +20,7 @@ const Header = () => {
       <div className="dropdown--btn">
         <button
           type="button"
-          className="flex gap-2 items-center bg-neutral-800 p-1.5 rounded cursor-pointer hover:bg-neutral-600 transition"
+          className="flex gap-2 items-center bg-neutral-800 p-1.5 rounded cursor-pointer hover:bg-neutral-600 transition lg:text-xl"
         >
           <img src={unitsIcon} alt="Units Icon" />
           <span className="text-sm">Units</span>

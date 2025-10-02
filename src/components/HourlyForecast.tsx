@@ -54,7 +54,7 @@ const HourlyForecast = ({ hourly }: Props) => {
   const hourlyData = transformHourlyData(hourly);
   const [today, setToday] = useState(new Date().getDay());
   return (
-    <aside className="daily--weather mt-4 bg-neutral-800 rounded-xl p-4 max-h-[620px] overflow-auto relative">
+    <aside className="daily--weather mt-4 lg:mt-0 bg-neutral-800 rounded-xl p-4 max-h-[620px] lg:max-h-[674px] overflow-auto relative">
       <div className="flex justify-between mb-2 items-center sticky -top-6 left-0 w-full py-4 bg-inherit">
         <h3 className="text-[20px] font-semibold text-neutral-0">
           Hourly forecast
