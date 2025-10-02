@@ -58,7 +58,8 @@ const CurrentWeather = ({ current }: Props) => {
           <p>Wind</p>
           <span>
             {" "}
-            {current.wind_speed_10m.toFixed(0)} {windSpeed}
+            {current.wind_speed_10m.toFixed(0)}{" "}
+            {windSpeed == "kmh" ? "km/h" : windSpeed}
           </span>
         </div>
         <div className="weather--stats">
@@ -66,7 +67,7 @@ const CurrentWeather = ({ current }: Props) => {
           <span>
             {" "}
             {current.precipitation.toFixed(1)}{" "}
-            {rainfall == "inches" ? "in" : "mm"}
+            {rainfall == "inch" ? "in" : "mm"}
           </span>
         </div>
       </div>

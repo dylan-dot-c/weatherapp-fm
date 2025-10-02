@@ -1,7 +1,13 @@
 import { fetchWeatherApi } from "openmeteo";
 // import { useQuery } from "@tanstack/react-query";
 
-export const fetchWeatherData = async (lat: number, long: number) => {
+export const fetchWeatherData = async (
+  lat: number,
+  long: number,
+  windUnit: string,
+  tempUnit: string,
+  rainUnit: string
+) => {
   const params = {
     latitude: lat,
     longitude: long,
@@ -17,6 +23,9 @@ export const fetchWeatherData = async (lat: number, long: number) => {
       "wind_speed_10m",
     ],
     timezone: "America/New_York",
+    wind_speed_unit: windUnit,
+    temperature_unit: tempUnit,
+    precipitation_unit: rainUnit,
   };
   const url = "https://api.open-meteo.com/v1/forecast";
   const responses = await fetchWeatherApi(url, params);

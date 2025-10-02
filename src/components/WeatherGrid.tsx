@@ -4,12 +4,21 @@ import { useQuery } from "@tanstack/react-query";
 import CurrentWeather from "./CurrentWeather";
 import DailyWeather from "./DailyWeather";
 import HourlyForecast from "./HourlyForecast";
-
+import useUnits from "../stores/unitsStore";
 const WeatherGrid = () => {
+  const { rainfall, windSpeed, temperature } = useUnits();
   const { latitude, longitude } = useLocation();
   const { isLoading, error, data } = useQuery({
-    queryKey: ["weather-data", latitude, longitude],
-    queryFn: () => fetchWeatherData(latitude, longitude),
+    queryKey: [
+      "weather-data",
+      latitude,
+      longitude,
+      windSpeed,
+      temperature,
+      rainfall,
+    ],
+    queryFn: () =>
+      fetchWeatherData(latitude, longitude, windSpeed, temperature, rainfall),
     enabled: !!latitude && !!longitude,
   });
   console.log(data, isLoading, error);

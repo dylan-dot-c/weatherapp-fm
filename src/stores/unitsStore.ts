@@ -3,8 +3,8 @@ import { create } from "zustand";
 type State = {
   unitSystem: "imperial" | "metric";
   temperature: "celsius" | "fahrenheit";
-  windSpeed: "km/h" | "mph";
-  rainfall: "mm" | "inches";
+  windSpeed: "kmh" | "mph";
+  rainfall: "mm" | "inch";
 };
 
 type Action = {
@@ -17,7 +17,7 @@ type Action = {
 const useUnits = create<State & Action>((set) => ({
   unitSystem: "metric",
   temperature: "celsius",
-  windSpeed: "km/h",
+  windSpeed: "kmh",
   rainfall: "mm",
 
   toggleSystem: () =>
@@ -26,7 +26,7 @@ const useUnits = create<State & Action>((set) => ({
         return {
           unitSystem: "metric",
           temperature: "celsius",
-          windSpeed: "km/h",
+          windSpeed: "kmh",
           rainfall: "mm",
         };
       } else {
@@ -34,7 +34,7 @@ const useUnits = create<State & Action>((set) => ({
           unitSystem: "imperial",
           temperature: "fahrenheit",
           windSpeed: "mph",
-          rainfall: "inches",
+          rainfall: "inch",
         };
       }
     }),
