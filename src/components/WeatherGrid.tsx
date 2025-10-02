@@ -5,9 +5,11 @@ import CurrentWeather from "./CurrentWeather";
 import DailyWeather from "./DailyWeather";
 import HourlyForecast from "./HourlyForecast";
 import useUnits from "../stores/unitsStore";
+import useEmptyDataStore from "../stores/emptyData";
 const WeatherGrid = () => {
   const { rainfall, windSpeed, temperature } = useUnits();
   const { latitude, longitude } = useLocation();
+  const { emptyData } = useEmptyDataStore();
   const { isLoading, error, data } = useQuery({
     queryKey: [
       "weather-data",
@@ -29,9 +31,17 @@ const WeatherGrid = () => {
 
   return (
     <section>
-      <CurrentWeather current={data!.current} />
-      <DailyWeather daily={data!.daily} />
-      <HourlyForecast hourly={data!.hourly} />
+      {emptyData ? (
+        <p className="text-center mt-12 font-semibold text-[28px]">
+          No search result found!
+        </p>
+      ) : (
+        <>
+          <CurrentWeather current={data!.current} />
+          <DailyWeather daily={data!.daily} />
+          <HourlyForecast hourly={data!.hourly} />
+        </>
+      )}
 
       {}
     </section>

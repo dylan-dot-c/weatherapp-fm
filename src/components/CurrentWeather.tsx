@@ -25,7 +25,7 @@ const CurrentWeather = ({ current }: Props) => {
   return (
     <section className="space-y-4">
       <div
-        className={`bg-[url('bg-today-small.svg')] bg-fit h-[286px] bg-center bg-no-repeat mt-6 p-4 font-family-dm-sans flex flex-col justify-center gap-8`}
+        className={`bg-[url('../bg-today-small.svg')] md:bg-[url('../bg-today-small.svg')] bg-fit h-[286px] bg-center bg-no-repeat mt-6 p-4 font-family-dm-sans flex flex-col justify-center gap-8`}
       >
         <div className="text-center">
           <h2 className="text-3xl font-semibold mb-2">{location}</h2>

@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import useEmptyDataStore from "./emptyData";
 
 type State = {
   latitude: number;
@@ -15,14 +16,18 @@ const useLocation = create<State & Actions>((set) => ({
   longitude: 13.41053,
   location: "Berlin, Germany",
 
-  setInfo: (lat, long, name) =>
+  setInfo: (lat, long, name) => {
     set(() => {
       return {
         latitude: lat,
         longitude: long,
         location: name,
       };
-    }),
+    });
+
+    //update empty store
+    useEmptyDataStore.getState().setEmptyData(false);
+  },
 }));
 
 export default useLocation;
