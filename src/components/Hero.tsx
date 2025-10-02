@@ -109,7 +109,7 @@ const Hero = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 rounded-2xl text-xl w-full lg:min-w-[114px] cursor-pointer transition hover:bg-blue-700"
+          className="bg-blue-500 rounded-2xl text-xl w-full lg:min-w-[114px] cursor-pointer transition p-4 hover:bg-blue-700"
           onClick={() => handleClick()}
         >
           Search
