@@ -54,8 +54,8 @@ const HourlyForecast = ({ hourly }: Props) => {
   const hourlyData = transformHourlyData(hourly);
   const [today, setToday] = useState(new Date().getDay());
   return (
-    <aside className="mt-4 bg-neutral-800 rounded-xl p-4">
-      <div className="flex justify-between mb-4 items-center">
+    <aside className="daily--weather mt-4 bg-neutral-800 rounded-xl p-4 max-h-[620px] overflow-auto relative">
+      <div className="flex justify-between mb-2 items-center sticky -top-6 left-0 w-full py-4 bg-inherit">
         <h3 className="text-[20px] font-semibold text-neutral-0">
           Hourly forecast
         </h3>
@@ -76,10 +76,10 @@ const HourlyForecast = ({ hourly }: Props) => {
         </select>
       </div>
 
-      <ul className="space-y-4">
+      <ul className="space-y-4 ">
         {hourlyData[today]?.map((item) => {
           return (
-            <li className="flex justify-between bg-neutral-700 border border-neutral-600 p-3 rounded-xl items-center">
+            <li className="flex justify-between bg-neutral-700 border border-neutral-600 p-1 px-3 rounded-xl items-center">
               <div className="flex gap-4 items-center">
                 <div>
                   <img src={weatherIcons[item.code]} alt="ICON" width={40} />

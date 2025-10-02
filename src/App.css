@@ -55,7 +55,7 @@ body {
 }
 
 .weather--overview {
-  background: url("bg-today-small.svg");
+  background: url("./bg-today-small.svg");
 }
 
 .weather--stats {
@@ -68,6 +68,18 @@ body {
 
 .weather--stats span {
   @apply text-neutral-0 text-[32px] font-light leading-10;
+}
+
+.daily--weather::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+  border-radius: 100%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-700); /* Darker gray handle */
+  border-radius: 10px;
+  border: 1px solid var(--color-neutral-600);
 }
 
 @theme {
