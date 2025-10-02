@@ -54,9 +54,10 @@ body {
   @apply divide-neutral-600 rounded-full divide-y;
 }
 
-.weather--overview {
+/* .weather--overview {
   background: url("./bg-today-small.svg");
-}
+  border: 2px solid red;
+} */
 
 .weather--stats {
   @apply bg-neutral-800 border border-neutral-600 rounded-xl p-[20px] flex flex-col gap-4;
