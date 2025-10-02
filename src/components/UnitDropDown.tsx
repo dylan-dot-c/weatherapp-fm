@@ -60,13 +60,13 @@ const UnitDropDown = () => {
           <button
             type="button"
             className="relative"
-            onClick={() => changespeedUnit("km/h")}
+            onClick={() => changespeedUnit("kmh")}
           >
             <span>km/h</span>
             <span
               className={clsx(
                 "absolute left-full flex h-full w-auto items-center  top-0 -ml-4",
-                { hidden: windSpeed != "km/h" }
+                { hidden: windSpeed != "kmh" }
               )}
             >
               <img src={check} alt="check icon" />
@@ -108,13 +108,13 @@ const UnitDropDown = () => {
           <button
             type="button"
             className="relative"
-            onClick={() => changeRainUnit("inches")}
+            onClick={() => changeRainUnit("inch")}
           >
             <span>Inches (in)</span>
             <span
               className={clsx(
                 "absolute left-full flex h-full w-auto items-center  top-0 -ml-4",
-                { hidden: rainfall != "inches" }
+                { hidden: rainfall != "inch" }
               )}
             >
               <img src={check} alt="check icon" />
