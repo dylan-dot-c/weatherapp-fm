@@ -29,21 +29,21 @@ const WeatherGrid = () => {
 
   if (error) return <h2>Error</h2>;
 
+  if (emptyData) {
+    return (
+      <p className="text-center mt-12 font-semibold text-[28px]">
+        No search result found!
+      </p>
+    );
+  }
+
   return (
     <section>
-      {emptyData ? (
-        <p className="text-center mt-12 font-semibold text-[28px]">
-          No search result found!
-        </p>
-      ) : (
-        <>
-          <CurrentWeather current={data!.current} />
-          <DailyWeather daily={data!.daily} />
-          <HourlyForecast hourly={data!.hourly} />
-        </>
-      )}
-
-      {}
+      <div className="space-y-8 mt-8">
+        <CurrentWeather current={data!.current} />
+        <DailyWeather daily={data!.daily} />
+        <HourlyForecast hourly={data!.hourly} />
+      </div>
     </section>
   );
 };

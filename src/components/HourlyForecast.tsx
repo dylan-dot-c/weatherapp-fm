@@ -82,7 +82,11 @@ const HourlyForecast = ({ hourly }: Props) => {
             <li className="flex justify-between bg-neutral-700 border border-neutral-600 p-1 px-3 rounded-xl items-center">
               <div className="flex gap-4 items-center">
                 <div>
-                  <img src={weatherIcons[item.code]} alt="ICON" width={40} />
+                  <img
+                    src={weatherIcons[item.code].icon}
+                    alt={weatherIcons[item.code].label}
+                    width={40}
+                  />
                 </div>
                 {formatTime(item.time)}
               </div>

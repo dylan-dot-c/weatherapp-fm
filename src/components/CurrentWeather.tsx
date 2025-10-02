@@ -33,13 +33,13 @@ const CurrentWeather = ({ current }: Props) => {
             {formatDateString(current.time)}
           </h3>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center gap-6">
           <img
-            src={weatherIcons[current.weather_code]}
-            alt="Sunny"
+            src={weatherIcons[current.weather_code].icon}
+            alt={`${weatherIcons[current.weather_code].label}`}
             width={120}
           />
-          <p className="text-8xl text-right italic">
+          <p className="text-8xl italic">
             {current.temperature_2m.toFixed(0)}°
           </p>
         </div>
