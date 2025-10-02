@@ -6,6 +6,7 @@ import type { CityResult } from "../types/cityResult";
 import SearchDropdown from "./SearchDropdown";
 
 const Hero = () => {
+  // const [showDropdown, setShowDropdown] = useState(false);
   const [place, setPlace] = useState("");
   const debouncedValue = useDebounce(place, 300);
 
@@ -33,7 +34,10 @@ const Hero = () => {
         How's the sky looking today?
       </h1>
 
-      <form className="flex gap-2 flex-col mt-8">
+      <form
+        className="flex gap-2 flex-col mt-8"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <div className="input-wrapper relative">
           <input
             onChange={(e) => setPlace(e.target.value)}
@@ -51,7 +55,7 @@ const Hero = () => {
         </div>
         {/* dropdown search */}
         <div className="relative">
-          <SearchDropdown cityResult={data || []} />
+          <SearchDropdown setPlace={setPlace} cityResult={data || []} />
         </div>
         <button type="submit" className="bg-blue-500 rounded-2xl p-4 text-xl">
           Search

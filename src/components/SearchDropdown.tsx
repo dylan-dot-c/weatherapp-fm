@@ -4,8 +4,9 @@ import useLocation from "../stores/locationStore";
 
 type Props = {
   cityResult: CityResult[];
+  setPlace: (value: React.SetStateAction<string>) => void;
 };
-const SearchDropdown = ({ cityResult }: Props) => {
+const SearchDropdown = ({ cityResult, setPlace }: Props) => {
   const { setInfo } = useLocation();
   return (
     <div
@@ -28,6 +29,9 @@ const SearchDropdown = ({ cityResult }: Props) => {
                   `${item.name}, ${item.admin1}`
                 );
                 console.log(item.latitude, item.longitude);
+                setPlace(
+                  `${item.name} ${item.admin1 ? ", " + item.admin1 + "\n" : ""}`
+                );
               }}
             >
               <img src={flagUrl} alt="Flag for" width={32} />
