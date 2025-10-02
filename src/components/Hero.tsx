@@ -4,13 +4,21 @@ import { useQuery } from "@tanstack/react-query";
 import useDebounce from "../hooks/useDebounce";
 import type { CityResult } from "../types/cityResult";
 import SearchDropdown from "./SearchDropdown";
+import loadingLocations from "../../assets/images/loadingLocations.svg";
+// import useUnits from "../stores/unitsStore";
+import useEmptyDataStore from "../stores/emptyData";
+import useLocation from "../stores/locationStore";
 
 const Hero = () => {
-  // const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const [place, setPlace] = useState("");
   const debouncedValue = useDebounce(place, 300);
+  // const { rainfall, windSpeed, temperature } = useUnits();
+  const { setInfo } = useLocation();
+  // const queryClient = useQueryClient();
+  const { setEmptyData } = useEmptyDataStore();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["cities", debouncedValue],
     queryFn: async () => {
       const response = await fetch(
@@ -28,6 +36,30 @@ const Hero = () => {
     },
     enabled: Boolean(debouncedValue),
   });
+
+  const handleClick = async () => {
+    const response = await fetch(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${place
+        .trim()
+        .toLowerCase()}&count=5`
+    );
+    if (!response.ok) alert("Error");
+
+    const res = await response.json();
+    console.log(res);
+    if (res.results) {
+      const results = res.results as CityResult[];
+      const info = results[0];
+      setPlace(`${info.name} ${info.admin1 ? ", " + info.admin1 : ""}`);
+      setInfo(
+        info.latitude,
+        info.longitude,
+        `${info.name} ${info.admin1 ? ", " + info.admin1 : ""}`
+      );
+    } else {
+      setEmptyData(true);
+    }
+  };
   return (
     <section className="mt-16">
       <h1 className="text-[52px] font-bold text-center p-4 leading-14">
@@ -35,12 +67,15 @@ const Hero = () => {
       </h1>
 
       <form
-        className="flex gap-2 flex-col mt-8"
+        className="flex gap-2 flex-col mt-8 lg:flex-row relative"
         onSubmit={(e) => e.preventDefault()}
       >
         <div className="input-wrapper relative">
           <input
-            onChange={(e) => setPlace(e.target.value)}
+            onChange={(e) => {
+              setPlace(e.target.value);
+              setShowDropdown(false);
+            }}
             value={place}
             type="search"
             placeholder="Search for a place..."
@@ -55,9 +90,28 @@ const Hero = () => {
         </div>
         {/* dropdown search */}
         <div className="relative">
-          <SearchDropdown setPlace={setPlace} cityResult={data || []} />
+          {isLoading && (
+            <div className="absolute bg-neutral-800 w-full p-4 rounded-2xl flex gap-4">
+              <img
+                src={loadingLocations}
+                alt="loading asset"
+                className="animate-spin"
+              />
+              <p>Search in progress</p>
+            </div>
+          )}
+          <SearchDropdown
+            setShowDropDown={setShowDropdown}
+            showDropdown={showDropdown}
+            setPlace={setPlace}
+            cityResult={data || []}
+          />
         </div>
-        <button type="submit" className="bg-blue-500 rounded-2xl p-4 text-xl">
+        <button
+          type="submit"
+          className="bg-blue-500 rounded-2xl p-4 text-xl"
+          onClick={() => handleClick()}
+        >
           Search
         </button>
       </form>
