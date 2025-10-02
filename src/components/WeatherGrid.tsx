@@ -39,7 +39,7 @@ const WeatherGrid = () => {
 
   return (
     <section>
-      <div className="space-y-8 mt-8">
+      <div className="space-y-8 mt-8 mb-12">
         <CurrentWeather current={data!.current} />
         <DailyWeather daily={data!.daily} />
         <HourlyForecast hourly={data!.hourly} />

@@ -10,6 +10,8 @@ body {
   color: var(--color-neutral-0);
   font-family: var(--font-family-dm-sans);
   padding: 1rem;
+
+  @apply p-4 md:p-6 bg-neutral-900 text-neutral-0 font-family-dm-sans;
 }
 
 .dropdown {

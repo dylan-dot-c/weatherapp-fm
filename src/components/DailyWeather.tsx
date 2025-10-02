@@ -41,7 +41,7 @@ const DailyWeather = ({ daily }: Props) => {
         Daily forecast
       </h3>
 
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-4 md:grid-cols-7">
         {realData.map((item) => {
           const { code, temp_max, temp_min } = item;
           const { icon, label } = weatherIcons[code ?? 0];
