@@ -62,15 +62,15 @@ const Hero = () => {
   };
   return (
     <section className="mt-16">
-      <h1 className="text-[52px] font-bold text-center p-4 leading-14">
+      <h1 className="text-[52px]  font-bold text-center p-4 leading-14 md:max-w-[482px] lg:max-w-7xl md:m-auto lg:mb-16">
         How's the sky looking today?
       </h1>
 
       <form
-        className="flex gap-2 flex-col mt-8 lg:flex-row relative"
+        className="flex gap-2 flex-col mt-8 md:flex-row relative lg:max-w-[656px] lg:m-auto"
         onSubmit={(e) => e.preventDefault()}
       >
-        <div className="input-wrapper relative">
+        <div className="input-wrapper relative md:min-w-[590px]">
           <input
             onChange={(e) => {
               setPlace(e.target.value);
@@ -89,7 +89,7 @@ const Hero = () => {
           />
         </div>
         {/* dropdown search */}
-        <div className="relative">
+        <div className="relative md:absolute md:min-w-[590px] top-20">
           {isLoading && (
             <div className="absolute bg-neutral-800 w-full p-4 rounded-2xl flex gap-4">
               <img
@@ -109,7 +109,7 @@ const Hero = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 rounded-2xl p-4 text-xl"
+          className="bg-blue-500 rounded-2xl text-xl w-full lg:min-w-[114px] cursor-pointer transition p-4 hover:bg-blue-700"
           onClick={() => handleClick()}
         >
           Search

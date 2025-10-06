@@ -25,27 +25,27 @@ const CurrentWeather = ({ current }: Props) => {
   return (
     <section className="space-y-4">
       <div
-        className={`bg-[url('../bg-today-small.svg')] md:bg-[url('../bg-today-small.svg')] bg-fit h-[286px] bg-center bg-no-repeat mt-6 p-4 font-family-dm-sans flex flex-col justify-center gap-8`}
+        className={`bg-[url('../bg-today-small.svg')] md:bg-[url('../bg-today-large.svg')] bg-cover h-[286px] bg-center bg-no-repeat mt-6 lg:mt-0 p-4 md:p-6 font-family-dm-sans flex flex-col md:flex-row md:items-center justify-center md:justify-between gap-8 md:w-full rounded-2xl`}
       >
-        <div className="text-center">
+        <div className="text-center md:text-left">
           <h2 className="text-3xl font-semibold mb-2">{location}</h2>
           <h3 className="font-light text-neutral-0">
             {formatDateString(current.time)}
           </h3>
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center gap-6">
           <img
-            src={weatherIcons[current.weather_code]}
-            alt="Sunny"
+            src={weatherIcons[current.weather_code].icon}
+            alt={`${weatherIcons[current.weather_code].label}`}
             width={120}
           />
-          <p className="text-8xl text-right italic">
+          <p className="text-8xl italic">
             {current.temperature_2m.toFixed(0)}°
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 pt-2">
         <div className="weather--stats">
           <p>Feels Like</p>
           <span>{current.apparent_temperature.toFixed()}°</span>
@@ -66,7 +66,7 @@ const CurrentWeather = ({ current }: Props) => {
           <p>Precipitation</p>
           <span>
             {" "}
-            {current.precipitation.toFixed(1)}{" "}
+            {current.precipitation.toFixed(0)}{" "}
             {rainfall == "inch" ? "in" : "mm"}
           </span>
         </div>

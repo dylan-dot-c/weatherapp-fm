@@ -41,21 +41,26 @@ const DailyWeather = ({ daily }: Props) => {
         Daily forecast
       </h3>
 
-      <div className="grid grid-cols-3 gap-4 mt-4">
+      <div className="grid grid-cols-3 gap-4 mt-4 md:grid-cols-7">
         {realData.map((item) => {
+          const { code, temp_max, temp_min } = item;
+          const { icon, label } = weatherIcons[code ?? 0];
           return (
-            <div className="text-center rounded-xl border-neutral-600 bg-neutral-800 border py-4 px-[10px]  flex flex-col gap-2">
+            <div
+              className="text-center rounded-xl border-neutral-600 bg-neutral-800 border py-4 px-[10px]  flex flex-col gap-2"
+              key={item.time.getMilliseconds()}
+            >
               <p>{item.time.toDateString().slice(0, 3)}</p>
               <div className="flex justify-center">
                 <img
-                  src={item.code ? weatherIcons[item.code] : weatherIcons[1]}
-                  alt=""
+                  src={code ? icon : weatherIcons[1].icon}
+                  alt={label}
                   width={60}
                 />
               </div>
               <div className="flex justify-between">
-                <p>{item.temp_max?.toFixed(0)}°</p>
-                <p>{item.temp_min?.toFixed(0)}°</p>
+                <p>{temp_max?.toFixed(0)}°</p>
+                <p>{temp_min?.toFixed(0)}°</p>
               </div>
             </div>
           );
