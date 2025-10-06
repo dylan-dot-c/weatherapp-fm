@@ -46,7 +46,10 @@ const DailyWeather = ({ daily }: Props) => {
           const { code, temp_max, temp_min } = item;
           const { icon, label } = weatherIcons[code ?? 0];
           return (
-            <div className="text-center rounded-xl border-neutral-600 bg-neutral-800 border py-4 px-[10px]  flex flex-col gap-2">
+            <div
+              className="text-center rounded-xl border-neutral-600 bg-neutral-800 border py-4 px-[10px]  flex flex-col gap-2"
+              key={item.time.getMilliseconds()}
+            >
               <p>{item.time.toDateString().slice(0, 3)}</p>
               <div className="flex justify-center">
                 <img
