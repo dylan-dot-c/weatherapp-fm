@@ -6,11 +6,13 @@ import DailyWeather from "./DailyWeather";
 import HourlyForecast from "./HourlyForecast";
 import useUnits from "../stores/unitsStore";
 import useEmptyDataStore from "../stores/emptyData";
+import LoadingSkeleton from "./LoadingSkeleton";
+import Error from "./Error";
 const WeatherGrid = () => {
   const { rainfall, windSpeed, temperature } = useUnits();
   const { latitude, longitude } = useLocation();
   const { emptyData } = useEmptyDataStore();
-  const { isLoading, error, data } = useQuery({
+  const { isLoading, data, isError, refetch } = useQuery({
     queryKey: [
       "weather-data",
       latitude,
@@ -23,11 +25,10 @@ const WeatherGrid = () => {
       fetchWeatherData(latitude, longitude, windSpeed, temperature, rainfall),
     enabled: !!latitude && !!longitude,
   });
-  console.log(data, isLoading, error);
 
-  if (isLoading) return <p>LOADING</p>;
+  const onRefetch = () => refetch();
 
-  if (error) return <h2>Error</h2>;
+  if (isError) return <Error refetch={onRefetch} />;
 
   if (emptyData) {
     return (
@@ -36,6 +37,8 @@ const WeatherGrid = () => {
       </p>
     );
   }
+
+  if (isLoading) return <LoadingSkeleton />;
 
   return (
     <section>
